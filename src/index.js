@@ -13,12 +13,12 @@ app.use(cookieParser());
 const allowedOrigins = [
   "*",
   "http://localhost:3000",
-  "https://resumebuilder-saas-frontend-2qwxpfkqp-yash-jadhavs-projects.vercel.app/register",
+  "https://resumebuilder-saas-frontend-2qwxpfkqp-yash-jadhavs-projects.vercel.app",
 ];
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: "https://resumebuilder-saas-frontend-2qwxpfkqp-yash-jadhavs-projects.vercel.app",
     credentials: true,
   }),
 );
