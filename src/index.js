@@ -10,11 +10,16 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
+const allowedOrigins = [
+  "*",
+  "http://localhost:3000"
+]
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "*",
     credentials: true,
-  })
+  }),
 );
 
 app.use("/api/v1/users", UserRouter);
@@ -25,7 +30,7 @@ app.get("/", (req, res) => {
   res.json({ hello: "world" });
 });
 
-app.listen(BASE_URL, async () => {
-  console.log("server is running... on port ", "http://localhost:" + BASE_URL);
+app.listen(BASE_URL, "0.0.0.0", async () => {
+  console.log("server is running... on port ", "http:// 192.168.1.6:" + BASE_URL);
   await GetDatabaseConnection();
 });
